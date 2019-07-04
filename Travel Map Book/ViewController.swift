@@ -14,6 +14,10 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
 
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var commentText: UITextField!
+    
+    
     var locationManager = CLLocationManager() //Kullanicinin nerede oldugunu bulmaya calisicaz.
     
     override func viewDidLoad() {
@@ -49,11 +53,16 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
             
             let annotation = MKPointAnnotation()
             annotation.coordinate = chosenCoordinates
-            annotation.title = "New Annotation"
-            annotation.subtitle = "Favorite Place"
+            annotation.title = nameText.text
+            annotation.subtitle = commentText.text
             self.mapView.addAnnotation(annotation)
             
         }
     }
+    
+    @IBAction func saveButtonClicked(_ sender: Any) {
+    }
+    
+    
 }
 
