@@ -25,7 +25,10 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
         locationManager.desiredAccuracy = kCLLocationAccuracyBest //Best secercek en iyi sekilde konumu bulur fakat pil cok harcar.
         locationManager.requestWhenInUseAuthorization() // kullanildiginda konumu takip eder.
         locationManager.startUpdatingLocation()
-        // Do any additional setup after loading the view.
+       
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.chooseLocation(gestureRecognizer:)))
+        recognizer.minimumPressDuration = 3
+        mapView.addGestureRecognizer(recognizer)
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -36,8 +39,21 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
         mapView.setRegion(region, animated: true)
     }
     
+    //UILongpressgesturerecognizer icin fonksiyon
     
-    
-    
+    @objc func chooseLocation (gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if gestureRecognizer.state == UIGestureRecognizer.State.began {
+            let touchedPoint = gestureRecognizer.location(in: self.mapView)
+            let chosenCoordinates = self.mapView.convert(touchedPoint, toCoordinateFrom: self.mapView)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = chosenCoordinates
+            annotation.title = "New Annotation"
+            annotation.subtitle = "Favorite Place"
+            self.mapView.addAnnotation(annotation)
+            
+        }
+    }
 }
 
