@@ -41,9 +41,8 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Core datayi import ettik.Array leri tanimladik. Simdi veri cekicez coredataya.
     func fetchData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Places")
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = (NSFetchRequest<NSFetchRequestResult>(entityName: "Places"))
         request.returnsObjectsAsFaults = false
         
         do {
@@ -58,7 +57,6 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 for result in results as! [NSManagedObject] {
                     if let title = result.value(forKey: "title") as? String {
                         self.titleArray.append(title)
-                        
                     if let subtitle = result.value(forKey: "subtitle") as? String {
                         self.subtitleArray.append(subtitle)
                     if let latitude = result.value(forKey: "latitude") as? Double {
