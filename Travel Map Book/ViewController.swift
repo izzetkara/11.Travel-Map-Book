@@ -114,6 +114,11 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
             print("Error!")
         }
         
+        //save butonuna basildiginda tableview a geri donmemiz icin gereken kodlari yaziyorum.
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newPlace"), object: nil)
+        
+        self.navigationController?.popViewController(animated: true)
+        
         
     }
     

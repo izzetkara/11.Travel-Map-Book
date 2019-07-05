@@ -46,7 +46,7 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     //Core datayi import ettik.Array leri tanimladik. Simdi veri cekicez coredataya.
-    func fetchData() {
+    @objc func fetchData() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = (NSFetchRequest<NSFetchRequestResult>(entityName: "Places"))
         request.returnsObjectsAsFaults = false
@@ -90,6 +90,10 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         selectedLatitude = latitudeArray[indexPath.row]
         selectedLongitude = longitudeArray[indexPath.row]
         performSegue(withIdentifier: "toMapVC", sender: nil)
+    }
+    //Viewcontroller da yazilan notificationcenter i burada tamamliyorum.
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(tableVC.fetchData), name: NSNotification.Name("newPlace"), object: nil)
     }
 
     //prepare for segue yapmamiz gerekiyor. cunku viewconttoller deki degiskenler ile burada olusturdugumuz degiskenleri esitlemek icin.
