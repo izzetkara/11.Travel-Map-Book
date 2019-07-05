@@ -109,8 +109,47 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //VERILERI SILMEK
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let request = (NSFetchRequest<NSFetchRequestResult>(entityName: "Places"))
+            
+            do {
+                let results = try context.fetch(request)
+                
+                for result in results as! [NSManagedObject] {
+                    if let name = result.value(forKey: "title") as? String {
+                        if name == titleArray[indexPath.row] {
+                            context.delete(result)
+                            titleArray.remove(at: indexPath.row)
+                            subtitleArray.remove(at: indexPath.row)
+                            latitudeArray.remove(at: indexPath.row)
+                            longitudeArray.remove(at: indexPath.row)
+                            
+                    self.tableView.reloadData()
+                            
+                            do {
+                                try context.save()
+                            } catch {
+                                
+                            }
+                             break
+                        }
+                    }
+                }
+            } catch {
+        }
+    }
+}
+    
 
     @IBAction func addButtonClicked(_ sender: Any) {
+        selectedTitle = ""
+        selectedSubtitle = ""
+        selectedLatitude = 0
+        selectedLongitude = 0
         performSegue(withIdentifier: "toMapVC", sender: nil)
     }
     

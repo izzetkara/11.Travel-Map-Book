@@ -123,8 +123,7 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
         }
         
     }
-    
-    
+      
     
     //UILongpressgesturerecognizer icin fonksiyon
     
