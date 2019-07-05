@@ -24,6 +24,11 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
     var chosenLatitude = Double()
     var chosenLongitude = Double()
     
+    var selectedTitle = ""
+    var selectedSubtitle = ""
+    var selectedLatitude : Double = 0
+    var selectedLongitude : Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

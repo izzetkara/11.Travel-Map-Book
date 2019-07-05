@@ -15,6 +15,12 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var subtitleArray = [String]()
     var latitudeArray = [Double]()
     var longitudeArray = [Double]()
+    
+    var selectedTitle = ""
+    var selectedSubtitle = ""
+    var selectedLatitude : Double = 0
+    var selectedLongitude : Double = 0
+    
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -77,9 +83,29 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-    
-    
+    //Row secilince ne olacak onu yaziyorum.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedTitle = titleArray[indexPath.row]
+        selectedSubtitle = subtitleArray[indexPath.row]
+        selectedLatitude = latitudeArray[indexPath.row]
+        selectedLongitude = longitudeArray[indexPath.row]
+        performSegue(withIdentifier: "toMapVC", sender: nil)
+    }
 
+    //prepare for segue yapmamiz gerekiyor. cunku viewconttoller deki degiskenler ile burada olusturdugumuz degiskenleri esitlemek icin.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMapVC" {
+            let destinationVC = segue.destination as! ViewController
+            destinationVC.selectedTitle = self.selectedTitle
+            destinationVC.selectedSubtitle = self.selectedSubtitle
+            destinationVC.selectedLatitude = self.selectedLatitude
+            destinationVC.selectedLongitude = self.selectedLongitude
+            
+        }
+        
+    }
+    
     @IBAction func addButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: "toMapVC", sender: nil)
     }
