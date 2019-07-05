@@ -107,9 +107,9 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             destinationVC.selectedLongitude = self.selectedLongitude
             
         }
-        
     }
     
+
     @IBAction func addButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: "toMapVC", sender: nil)
     }

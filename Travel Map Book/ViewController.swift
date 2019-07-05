@@ -71,6 +71,31 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
         mapView.setRegion(region, animated: true)
     }
     
+    //Pinleri ozellestirmek
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+       
+        if annotation is MKUserLocation {
+            return nil //anotasyon kullanicinin kendi konumuyla alakali birseyse birsey yapma diyoruz eger degilse
+        }
+        
+        let reuseID = "myAnnotation"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            pinView?.canShowCallout = true //Yuvarlak icinde i yazan bilgi butonu yarattik.
+            pinView?.pinTintColor = UIColor.black // rengini sectik pinin
+            
+            let button = UIButton(type: UIButton.ButtonType.detailDisclosure) //detaildisclosure butonun tipi.
+            pinView?.rightCalloutAccessoryView = button // butonun turu.
+        } else {
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }
+    
+    
     //UILongpressgesturerecognizer icin fonksiyon
     
     @objc func chooseLocation (gestureRecognizer: UILongPressGestureRecognizer) {
@@ -89,10 +114,6 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
             self.mapView.addAnnotation(annotation)
             
         }
-        
-        
-        
-        
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
