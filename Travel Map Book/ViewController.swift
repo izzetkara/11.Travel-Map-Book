@@ -42,6 +42,25 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.chooseLocation(gestureRecognizer:)))
         recognizer.minimumPressDuration = 3
         mapView.addGestureRecognizer(recognizer)
+        
+        //Row a tiklaninda birsey var mi yok mu onu kontrol ardindan bilgileri gostermek.
+        
+        if selectedTitle != "" {
+            
+            let annotation = MKPointAnnotation()
+            let coordinate = CLLocationCoordinate2D(latitude: self.selectedLatitude, longitude: self.selectedLongitude)
+            
+            annotation.coordinate = coordinate
+            annotation.title = self.selectedTitle
+            annotation.subtitle = self.selectedSubtitle //self. eklemeyince de calisiyor gibi duruyor.
+            self.mapView.addAnnotation(annotation)
+            
+            nameText.text = self.selectedTitle
+            commentText.text = self.selectedSubtitle
+            
+        }
+        
+        
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
