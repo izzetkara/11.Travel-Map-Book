@@ -58,15 +58,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ahK-a9-SXs">
                                 <rect key="frame" x="20" y="285" width="374" height="415"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="415" id="8ua-rg-H8c"/>
-                                </constraints>
                             </mapView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R0R-ZQ-dgv">
                                 <rect key="frame" x="20" y="179" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="691-0o-GQQ"/>
-                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -88,19 +82,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kUk-sa-Z6f" secondAttribute="bottom" constant="155" id="3bG-oV-dl9"/>
-                            <constraint firstItem="8sh-ek-v8r" firstAttribute="leading" secondItem="ahK-a9-SXs" secondAttribute="leading" id="4vF-vb-gT6"/>
-                            <constraint firstItem="ahK-a9-SXs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Az-HN-xiv"/>
-                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7y3-fO-Er7"/>
-                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="trailing" secondItem="8sh-ek-v8r" secondAttribute="trailing" id="Hg7-gU-8SF"/>
-                            <constraint firstItem="kUk-sa-Z6f" firstAttribute="top" secondItem="ahK-a9-SXs" secondAttribute="bottom" constant="15" id="SPK-h8-A9D"/>
-                            <constraint firstItem="8sh-ek-v8r" firstAttribute="top" secondItem="R0R-ZQ-dgv" secondAttribute="bottom" constant="8" symbolic="YES" id="XJl-5g-0bc"/>
-                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="91" id="ay4-kB-qEh"/>
-                            <constraint firstItem="8sh-ek-v8r" firstAttribute="trailing" secondItem="ahK-a9-SXs" secondAttribute="trailing" id="gcJ-LF-Jdg"/>
-                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="leading" secondItem="8sh-ek-v8r" secondAttribute="leading" id="jLA-Hw-Eyb"/>
-                            <constraint firstItem="ahK-a9-SXs" firstAttribute="top" secondItem="8sh-ek-v8r" secondAttribute="bottom" constant="38" id="nfk-kr-N4u"/>
-                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rSb-1O-Z0f"/>
-                            <constraint firstItem="ahK-a9-SXs" firstAttribute="trailing" secondItem="kUk-sa-Z6f" secondAttribute="trailing" id="wpL-Ay-KxV"/>
+                            <constraint firstItem="kUk-sa-Z6f" firstAttribute="top" secondItem="ahK-a9-SXs" secondAttribute="bottom" constant="15" id="0CR-Ou-c5I"/>
+                            <constraint firstItem="8sh-ek-v8r" firstAttribute="top" secondItem="R0R-ZQ-dgv" secondAttribute="bottom" constant="8" symbolic="YES" id="Bgj-JQ-7uE"/>
+                            <constraint firstItem="ahK-a9-SXs" firstAttribute="top" secondItem="8sh-ek-v8r" secondAttribute="bottom" constant="38" id="Cep-bO-6mF"/>
+                            <constraint firstItem="8sh-ek-v8r" firstAttribute="trailing" secondItem="ahK-a9-SXs" secondAttribute="trailing" id="JBy-Lh-H5Y"/>
+                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QIp-kh-2Nb"/>
+                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="leading" secondItem="8sh-ek-v8r" secondAttribute="leading" id="Z0Y-ol-CNf"/>
+                            <constraint firstItem="ahK-a9-SXs" firstAttribute="trailing" secondItem="kUk-sa-Z6f" secondAttribute="trailing" id="eFP-5d-tqP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kUk-sa-Z6f" secondAttribute="bottom" constant="111" id="g0X-du-awx"/>
+                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nE7-2a-N4m"/>
+                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="91" id="sgJ-HV-yo4"/>
+                            <constraint firstItem="8sh-ek-v8r" firstAttribute="leading" secondItem="ahK-a9-SXs" secondAttribute="leading" id="vVW-d1-p7b"/>
+                            <constraint firstItem="R0R-ZQ-dgv" firstAttribute="trailing" secondItem="8sh-ek-v8r" secondAttribute="trailing" id="zVc-uG-Fbb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
