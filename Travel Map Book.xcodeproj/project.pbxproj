@@ -13,6 +13,7 @@
 		E0481D0B22CE4B0D00C10963 /* Travel_Map_Book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0481D0922CE4B0D00C10963 /* Travel_Map_Book.xcdatamodeld */; };
 		E0481D0D22CE4B0E00C10963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0481D0C22CE4B0E00C10963 /* Assets.xcassets */; };
 		E0481D1022CE4B0E00C10963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0481D0E22CE4B0E00C10963 /* LaunchScreen.storyboard */; };
+		E0F36D2D22CEFD5200880433 /* tableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F36D2C22CEFD5200880433 /* tableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E0481D0C22CE4B0E00C10963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0481D0F22CE4B0E00C10963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0481D1122CE4B0E00C10963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0F36D2C22CEFD5200880433 /* tableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				E0481D0222CE4B0D00C10963 /* AppDelegate.swift */,
 				E0481D0422CE4B0D00C10963 /* ViewController.swift */,
+				E0F36D2C22CEFD5200880433 /* tableVC.swift */,
 				E0481D0622CE4B0D00C10963 /* Main.storyboard */,
 				E0481D0C22CE4B0E00C10963 /* Assets.xcassets */,
 				E0481D0E22CE4B0E00C10963 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0481D0522CE4B0D00C10963 /* ViewController.swift in Sources */,
+				E0F36D2D22CEFD5200880433 /* tableVC.swift in Sources */,
 				E0481D0B22CE4B0D00C10963 /* Travel_Map_Book.xcdatamodeld in Sources */,
 				E0481D0322CE4B0D00C10963 /* AppDelegate.swift in Sources */,
 			);
