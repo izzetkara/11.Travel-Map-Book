@@ -20,6 +20,8 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
     
     
     var locationManager = CLLocationManager() //Kullanicinin nerede oldugunu bulmaya calisicaz.
+    var requestCLLocation = CLLocation()
+    
     
     var chosenLatitude = Double()
     var chosenLongitude = Double()
@@ -94,6 +96,34 @@ class ViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDeleg
         }
         return pinView
     }
+    
+    //righyCalloutAccesorrview e tiklaninca ne oldugunu yazicaz. Navigasyon yaraticaz.
+        //buraya aktarilan enlem ve boylam var mi yok mu bos mu onu kontrol etmemeiz gerekiyor ilk once yoksa cokebilir.
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if selectedLatitude != 0 {
+            if selectedLongitude != 0 {
+                //yuakrida requestCLLocation yarattik.
+                self.requestCLLocation = CLLocation(latitude: selectedLatitude, longitude: selectedLongitude)
+            }
+        }
+        //reverseGeocodeLocaiton olusturdugum enlem ve boylam dan adres bul demek.
+        CLGeocoder().reverseGeocodeLocation(requestCLLocation) { (placemarks, error) in
+            if let placemark = placemarks {
+                if placemark.count > 0 { // o adres var ise [0] ilk olanini aliyorum. o adrese giden bir navigasyon yaramtaya calisiyorum.
+                    let newPlacemark = MKPlacemark(placemark: placemark[0])
+                    let item = MKMapItem(placemark: newPlacemark)
+                    item.name = self.selectedTitle
+                    
+                    let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                    item.openInMaps(launchOptions: launchOptions)
+                }
+            }
+        }
+        
+    }
+    
     
     
     //UILongpressgesturerecognizer icin fonksiyon
