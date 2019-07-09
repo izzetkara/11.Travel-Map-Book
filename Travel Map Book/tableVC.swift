@@ -70,10 +70,11 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     if let longitude = result.value(forKey: "longitude") as? Double {
                         self.longitudeArray.append(longitude)
                         }
-        tableView.reloadData()
+        
                     }
                 }
             }
+        tableView.reloadData()
         }
     }
 } catch {
@@ -115,6 +116,7 @@ class tableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             let request = (NSFetchRequest<NSFetchRequestResult>(entityName: "Places"))
+            
             
             do {
                 let results = try context.fetch(request)
